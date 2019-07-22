@@ -2853,6 +2853,11 @@ Style/IpAddresses:
     - "::"
     # :: is a valid IPv6 address, but could potentially be legitimately in code
 
+Style/KeywordArguments:
+  Description: "Enforce the use of keyword arguments on public methods.'
+  Enabled: false
+  VersionAdded: '0.73'
+
 Style/Lambda:
   Description: 'Use the new lambda literal syntax for single-line blocks.'
   StyleGuide: '#lambda-multi-line'

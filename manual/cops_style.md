@@ -2796,7 +2796,8 @@ Disabled | Yes | No | 0.73 | -
 
 This cop checks for multiple positional arguments on public methods.
 More than one positional argument on a public method requires too much
-knowledge about the method for consumers to safely or realistically consume.
+knowledge about the method for consumers to safely or realistically
+consume.
 It does not care about private or protected methods.
 
 ### Examples

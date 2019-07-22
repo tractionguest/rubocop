@@ -1,45 +1,25 @@
 # frozen_string_literal: true
 
-require 'byebug'
-require 'ap'
-
-# TODO: when finished, run `rake generate_cops_documentation` to update the docs
 module RuboCop
   module Cop
     module Style
-      # TODO: Write cop description and example of bad / good code. For every
-      # `SupportedStyle` and unique configuration, there needs to be examples.
-      # Examples must have valid Ruby syntax. Do not use upticks.
+      # This cop checks for multiple positional arguments on public methods.
+      # More than one positional argument on a public method requires too much
+      # knowledge about the method for consumers to safely or realistically consume.
+      # It does not care about private or protected methods.
       #
-      # @example EnforcedStyle: bar (default)
-      #   # Description of the `bar` style.
-      #
+      # @example EnforcedStyle:
       #   # bad
-      #   bad_bar_method
-      #
-      #   # bad
-      #   bad_bar_method(args)
+      #   def bad_method(positional_argument, another_positional_argument); end
       #
       #   # good
-      #   good_bar_method
-      #
+      #   def good_method(named_argument:, another_named_argument:); end
+      #   
       #   # good
-      #   good_bar_method(args)
-      #
-      # @example EnforcedStyle: foo
-      #   # Description of the `foo` style.
-      #
-      #   # bad
-      #   bad_foo_method
-      #
-      #   # bad
-      #   bad_foo_method(args)
-      #
+      #   def good_method(positional_argument, named_argument:); end
+      #   
       #   # good
-      #   good_foo_method
-      #
-      #   # good
-      #   good_foo_method(args)
+      #   def good_method(positional_argument); end
       #
       class KeywordArguments < Cop
         MSG = 'Prefer only one positional argument per public method'.freeze

@@ -2788,6 +2788,35 @@ Name | Default value | Configurable values
 --- | --- | ---
 Whitelist | `::` | Array
 
+## Style/KeywordArguments
+
+Enabled by default | Safe | Supports autocorrection | VersionAdded | VersionChanged
+--- | --- | --- | --- | ---
+Disabled | Yes | No | 0.73 | -
+
+This cop checks for multiple positional arguments on public methods.
+More than one positional argument on a public method requires too much
+knowledge about the method for consumers to safely or realistically consume.
+It does not care about private or protected methods.
+
+### Examples
+
+#### EnforcedStyle:
+
+```ruby
+# bad
+def bad_method(positional_argument, another_positional_argument); end
+
+# good
+def good_method(named_argument:, another_named_argument:); end
+
+# good
+def good_method(positional_argument, named_argument:); end
+
+# good
+def good_method(positional_argument); end
+```
+
 ## Style/Lambda
 
 Enabled by default | Safe | Supports autocorrection | VersionAdded | VersionChanged

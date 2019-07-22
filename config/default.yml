@@ -2854,7 +2854,7 @@ Style/IpAddresses:
     # :: is a valid IPv6 address, but could potentially be legitimately in code
 
 Style/KeywordArguments:
-  Description: "Enforce the use of keyword arguments on public methods.'
+  Description: 'Enforce the use of keyword arguments on public methods.'
   Enabled: false
   VersionAdded: '0.73'
 

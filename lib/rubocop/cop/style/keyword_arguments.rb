@@ -21,8 +21,11 @@ module RuboCop
       #   # good
       #   def good_method(positional_argument); end
       #
+      #   # good
+      #   def setter=(value); end
+      #
       class KeywordArguments < Cop
-        MSG = 'Prefer only one positional argument per public method'.freeze
+        MSG = 'Prefer only one positional argument per public method.'.freeze
 
         def on_class(node)
           check_node(node)

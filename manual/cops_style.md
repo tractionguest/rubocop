@@ -2815,6 +2815,9 @@ def good_method(positional_argument, named_argument:); end
 
 # good
 def good_method(positional_argument); end
+
+# good
+def setter=(value); end
 ```
 
 ## Style/Lambda

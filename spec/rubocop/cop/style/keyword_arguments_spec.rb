@@ -9,7 +9,7 @@ RSpec.describe RuboCop::Cop::Style::KeywordArguments do
     expect_offense(<<~RUBY)
       class C
         def candidate_method(bacon, cheese)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Prefer only one positional argument per public method
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Prefer only one positional argument per public method.
         end
       end
     RUBY
@@ -20,7 +20,7 @@ RSpec.describe RuboCop::Cop::Style::KeywordArguments do
     expect_offense(<<~RUBY)
       module C
         def candidate_method(bacon, cheese)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Prefer only one positional argument per public method
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Prefer only one positional argument per public method.
         end
       end
     RUBY
@@ -45,6 +45,15 @@ RSpec.describe RuboCop::Cop::Style::KeywordArguments do
     expect_no_offenses(<<~RUBY)
       class C
         def candidate_method(bacon:)
+        end
+      end
+    RUBY
+  end
+
+  it 'does not register an offense when using a single positional in a setter' do
+    expect_no_offenses(<<~RUBY)
+      module C
+        def setter=(value)
         end
       end
     RUBY
